@@ -6,10 +6,11 @@ Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
 ## Manging Projects
 ```
-oc get projects   # List Existing Projects
-oc project myproject # switch to a project
+oc get projects           # List Existing Projects
+oc project myproject      # switch to a project
 ```
 
+## PVC - *PhysicalVolumeClaim*
 ```
 oc whoami
 
