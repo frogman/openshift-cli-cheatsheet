@@ -4,14 +4,11 @@
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
-## List Existing Project
+## Manging Projects
 ```
-oc get projects
+oc get projects   # List Existing Projects
+oc project myproject # switch to a project
 ```
-- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
-- [x] list syntax required (any unordered or ordered list supported)
-- [x] this is a complete item
-- [ ] this is an incomplete item
 
 ```
 oc whoami
