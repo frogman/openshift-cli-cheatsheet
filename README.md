@@ -5,17 +5,30 @@ http://bit.ly/gineesh | www.techbeatly.com
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
+## OpenShift  CLI
+oc command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. Download oc cli tool from : https://www.okd.io/download.html
+
+On a RHEL system with valid subscription you can install with yum as below.
+```
+$ sudo yum install -y atomic-openshift-clients
+```
+
 Many common oc operations are invoked using the following syntax:
 ```
 $ oc <action> <object_type> <object_name_or_id>
 ```
 
-## Login
+## Login and Logout
 ```
-oc login https://10.142.0.2:8443 -u admin -p openshift  # Login to openshift cluster
+oc login https://10.142.0.2:8443 -u admin -p openshift 
+                              # Login to openshift cluster
 oc whoami                     # identify the current login
 oc login -u system:admin      # login to cluster from any master node without a password
 oc logout                     # logout from cluster
+```
+## oc status
+```
+oc status -v                  # get oc cluster status
 ```
 ## Managing Projects
 ```
@@ -28,9 +41,15 @@ oc delete project testlab     # delete a project
 ```
 oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
-oc get nodes                 # list nodes in a cluster
-oc describe node <node1>     # show deatils of a specific resource
-oc export pod mysql-1-p1d35  # export a definition of a resource (creating a backup etc) in JSON or YAML format.
+oc get nodes                  # list nodes in a cluster
+```
+## oc describe 
+```
+oc describe node <node1>      # show deatils of a specific resource
+```
+## oc Export 
+```
+oc export pod mysql-1-p1d35   # export a definition of a resource (creating a backup etc) in JSON or YAML format.
 ```
 ## Managing pods
 ```
@@ -41,18 +60,16 @@ oc get pods -n *<project>*    # list running pods inside a project/name-space
 ``` 
 oc get pvc                    # list pvc
 ```
+## oc exec - execute command inside a containe
+```
+oc exec  <pd> -i -t -- <command> # run command inside a container without login
+  eg: oc exec  my-php-app-1mmh1 -i -t -- curl -v http://dbserver:8076
+```
 
 ## Get Help
 ```
 # oc help                     # list oc command help options
 ```
-
-## Handling Containers
-```python
-oc exec  <pd> -i -t -- <command> # run command inside a container without login
-  eg: oc exec  my-php-app-1mmh1 -i -t -- curl -v http://dbserver:8076
-```
-
 
 
 ```
