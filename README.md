@@ -4,7 +4,7 @@
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
-## Manging Projects
+## Managing Projects
 ```
 oc get projects               # List Existing Projects
 oc project myproject          # switch to a project
@@ -17,6 +17,11 @@ oc get pods -n <project>      # list running pods inside a project/name-space
 ## PVC - *PhysicalVolumeClaim*
 ``` 
 oc get pvc                    # list pvc
+```
+
+## Get Help
+```
+# oc help                     # list oc command help options
 ```
 
 ```
