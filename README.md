@@ -4,6 +4,11 @@
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
+** List Existing Project **
+```
+oc get projects
+```
+
 ```
 oc whoami
 
