@@ -4,6 +4,12 @@
 http://bit.ly/gineesh | www.techbeatly.com
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
+
+Many common oc operations are invoked using the following syntax:
+```
+$ oc <action> <object_type> <object_name_or_id>
+```
+
 ## Login
 ```bash
 oc login https://10.142.0.2:8443 -u admin -p openshift  # Login to openshift cluster
@@ -24,6 +30,7 @@ oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
 oc get nodes                 # list nodes in a cluster
 oc describe node **<node1>**   # show deatils of a specific resource
+oc export pod mysql-1-p1d35 
 ```
 ## Managing pods
 ```bash
