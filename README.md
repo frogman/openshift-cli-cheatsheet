@@ -40,6 +40,14 @@ oc get pvc                    # list pvc
 # oc help                     # list oc command help options
 ```
 
+## Handling Containers
+```python
+oc exec  <pd> -i -t -- <command> # run command inside a container without login
+  eg: oc exec  gocd-agent-259-1mmh1 -i -t -- curl -v http://172.31.56.100:8089
+```
+
+
+
 ```bash
 
 oc status
