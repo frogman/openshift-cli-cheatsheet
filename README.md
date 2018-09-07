@@ -6,7 +6,8 @@ http://bit.ly/gineesh | www.techbeatly.com
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
 ## OpenShift  CLI
-oc command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. Download oc cli tool from : https://www.okd.io/download.html
+oc command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
+Download oc cli tool from : https://www.okd.io/download.html
 
 On a RHEL system with valid subscription you can install with yum as below.
 ```
@@ -64,6 +65,21 @@ oc get pvc                    # list pvc
 ```
 oc exec  <pd> -i -t -- <command> # run command inside a container without login
   eg: oc exec  my-php-app-1mmh1 -i -t -- curl -v http://dbserver:8076
+```
+## Events and Troubleshooting
+```
+oc get events                 # list events inside cluster
+oc logs pod                   # get logs from pod
+oc rsh <pod>                  # login to a pod
+```
+## Applications
+```
+oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=mydb -l db=mysql
+                              # create a new application
+oc new-app --docker-image=myregistry.example.com/dockers/myapp --name=myapp
+                              # create a new application from private registry
+oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
+                              # create a new application from source code (s2i)
 ```
 
 ## Get Help
