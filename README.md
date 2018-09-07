@@ -1,18 +1,34 @@
 # openshift-cli-cheatsheet
 
-*Seperately Created for Quick Access*
+*For Quick Access*
+http://bit.ly/gineesh | www.techbeatly.com
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
-
+## Login
+```
+oc login https://10.142.0.2:8443 -u admin -p openshift  # Login to openshift cluster
+oc whoami                     # identify the current login
+oc login -u system:admin      # login to cluster from any master node without a password
+oc logout                     # logout from cluster
+```
 ## Managing Projects
 ```
-oc get projects               # List Existing Projects
+oc get projects               # list Existing Projects
 oc project myproject          # switch to a project
+oc new-project testlab        # create a new project
+oc delete project testlab     # delete a project
+```
+## Resources
+```
+oc get all                    # list all resource items
+                                -w  watches the result output in realtime.
+oc get nodes                 # list nodes in a cluster
+oc describe node *<node1>*   # show deatils of a specific resource
 ```
 ## Managing pods
 ```
 oc get pods                   # list running pods inside a project
-oc get pods -n <project>      # list running pods inside a project/name-space
+oc get pods -n *<project>*    # list running pods inside a project/name-space
 ```
 ## PVC - *PhysicalVolumeClaim*
 ``` 
