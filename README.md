@@ -12,7 +12,7 @@ oc project myproject          # switch to a project
 ## Managing pods
 ``
 oc get pods                   # list running pods inside a project
-oc get pods -n *<project>*    # list running pods inside a project/name-space
+oc get pods -n <project>    # list running pods inside a project/name-space
 ``
 ## PVC - *PhysicalVolumeClaim*
 ``` 
