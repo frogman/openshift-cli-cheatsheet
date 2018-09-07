@@ -50,7 +50,8 @@ oc describe node <node1>      # show deatils of a specific resource
 ```
 ## oc Export 
 ```
-oc export pod mysql-1-p1d35   # export a definition of a resource (creating a backup etc) in JSON or YAML format.
+oc export pod mysql-1-p1d35   
+                              # export a definition of a resource (creating a backup etc) in JSON or YAML format.
 ```
 ## Managing pods
 ```
@@ -63,8 +64,9 @@ oc get pvc                    # list pvc
 ```
 ## oc exec - execute command inside a containe
 ```
-oc exec  <pd> -i -t -- <command> # run command inside a container without login
-  eg: oc exec  my-php-app-1mmh1 -i -t -- curl -v http://dbserver:8076
+oc exec  <pd> -i -t -- <command> 
+                              # run command inside a container without login
+                                eg: oc exec  my-php-app-1mmh1 -i -t -- curl -v http://dbserver:8076
 ```
 ## Events and Troubleshooting
 ```
@@ -81,7 +83,6 @@ oc new-app --docker-image=myregistry.example.com/dockers/myapp --name=myapp
 oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
                               # create a new application from source code (s2i)
 ```
-
 ## Get Help
 ```
 # oc help                     # list oc command help options
@@ -89,10 +90,6 @@ oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
 
 
 ```
-
-oc status
-
-
 oc describe RESOURCE RESOURCE_NAME
 
 oc export
