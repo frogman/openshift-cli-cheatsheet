@@ -4,7 +4,7 @@
 
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
-** List Existing Project **
+## List Existing Project
 ```
 oc get projects
 ```
