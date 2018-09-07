@@ -11,39 +11,39 @@ $ oc <action> <object_type> <object_name_or_id>
 ```
 
 ## Login
-```bash
+```
 oc login https://10.142.0.2:8443 -u admin -p openshift  # Login to openshift cluster
 oc whoami                     # identify the current login
 oc login -u system:admin      # login to cluster from any master node without a password
 oc logout                     # logout from cluster
 ```
 ## Managing Projects
-```bash
+```
 oc get projects               # list Existing Projects
 oc project myproject          # switch to a project
 oc new-project testlab        # create a new project
 oc delete project testlab     # delete a project
 ```
 ## Resources
-```bash
+```
 oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
 oc get nodes                 # list nodes in a cluster
-oc describe node **<node1>**   # show deatils of a specific resource
-oc export pod mysql-1-p1d35 
+oc describe node <node1>     # show deatils of a specific resource
+oc export pod mysql-1-p1d35  # export a definition of a resource (creating a backup etc) in JSON or YAML format.
 ```
 ## Managing pods
-```bash
+```
 oc get pods                   # list running pods inside a project
 oc get pods -n *<project>*    # list running pods inside a project/name-space
 ```
 ## PVC - *PhysicalVolumeClaim*
-```bash 
+``` 
 oc get pvc                    # list pvc
 ```
 
 ## Get Help
-```bash
+```
 # oc help                     # list oc command help options
 ```
 
@@ -55,7 +55,7 @@ oc exec  <pd> -i -t -- <command> # run command inside a container without login
 
 
 
-```bash
+```
 
 oc status
 
