@@ -6,11 +6,19 @@ Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
 ## Manging Projects
 ```
-oc get projects           # List Existing Projects
-oc project myproject      # switch to a project
+oc get projects               # List Existing Projects
+oc project myproject          # switch to a project
+```
+## Managing pods
+``
+oc get pods                   # list running pods inside a project
+oc get pods -n *<project>*    # list running pods inside a project/name-space
+``
+## PVC - *PhysicalVolumeClaim*
+``` 
+oc get pvc                    # list pvc
 ```
 
-## PVC - *PhysicalVolumeClaim*
 ```
 oc whoami
 
