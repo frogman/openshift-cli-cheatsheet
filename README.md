@@ -1,6 +1,7 @@
 # openshift-cli-cheatsheet
 
 *Seperately Created for Quick Access*
+
 Refer : https://github.com/ginigangadharan/openshift-cheatsheet
 
 ```
