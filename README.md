@@ -23,7 +23,7 @@ oc delete project testlab     # delete a project
 oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
 oc get nodes                 # list nodes in a cluster
-oc describe node *<node1>*   # show deatils of a specific resource
+oc describe node **<node1>**   # show deatils of a specific resource
 ```
 ## Managing pods
 ```bash
