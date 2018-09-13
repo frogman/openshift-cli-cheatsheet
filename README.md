@@ -35,7 +35,8 @@ oc status -v                  # get oc cluster status
 ```
 oc get projects               # list Existing Projects
 oc project myproject          # switch to a project
-oc new-project testlab        # create a new project
+oc new-project testlab --display-name='testlab' --description='testlab'        
+                              # create a new project
 oc delete project testlab     # delete a project
 ```
 ## Resources
@@ -124,11 +125,9 @@ oc cluster up \
 ```
 
 ```
-oc login -u developer -p developer
+
 
 oc project myproject
-
-oc new-app --name='cotd' --labels name='cotd' php~https://github.com/devops-with-openshift/cotd.git -e SELECTOR=cats
 
 oc expose service cotd
 ```
@@ -200,24 +199,14 @@ oc describe dc cotd
 
 ## Pipelines
 
-### Jenkins template
 
-- Comes with all necessary OpenShift plugins (OpenShift login, OpenShift sync, OpenShift pipeline, Kubernetes)
 
-- Comes with example `Jenkinsfile`
-
-```
-oc get templates -n openshift | grep jenkins-pipeline-example
-
-oc new-app jenkins-ephemeral # to keep the logs when Jenkins container shuts down
-
-oc get pods
 
 oc new-app jenkins-pipeline-example
 
 oc start-build sample-pipeline
 
-oc get pods
+
 ```
 
 - Customizing Jenkins:
@@ -464,11 +453,9 @@ oc cluster up --metrics=true
 - hard constraints how much memory/CPU your project can consume
 
 ```
-oc login -u developer -p developer
 
-oc new-project development --display-name='Development' --description='Development'
 
-oc login -u system:admin
+
 
 oc create -n development -f <YAML FILE HERE kind: ResourceQuota>
 
