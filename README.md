@@ -1,9 +1,8 @@
 # openshift-cli-cheatsheet
-
 *For Quick Access*
-http://bit.ly/gineesh | www.techbeatly.com
 
-Refer : https://github.com/ginigangadharan/openshift-cheatsheet
+http://bit.ly/gineesh | www.techbeatly.com
+Refer forked repo : https://github.com/ginigangadharan/openshift-cheatsheet
 
 ## OpenShift  CLI
 oc command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
@@ -34,10 +33,12 @@ oc status -v                  # get oc cluster status
 ## Managing Projects
 ```
 oc get projects               # list Existing Projects
+oc get project                # Display current project
 oc project myproject          # switch to a project
 oc new-project testlab --display-name='testlab' --description='testlab'        
                               # create a new project
 oc delete project testlab     # delete a project
+oc delete all --all           # delete all from a project
 ```
 ## Resources
 ```
@@ -45,6 +46,11 @@ oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
 oc get nodes                  # list nodes in a cluster
 ```
+## Managing Users
+```
+oc adm policy add-cluster-role-to-user cluster-admin develoer
+```
+
 ## oc describe 
 ```
 oc describe node <node1>      # show deatils of a specific resource
@@ -59,6 +65,8 @@ oc export pod mysql-1-p1d35
 ## Managing pods
 ```
 oc get pods                   # list running pods inside a project
+oc get pods -o wide           # detailed listing of pods
+oc get pod -o name            # for pod names
 oc get pods -n *<project>*    # list running pods inside a project/name-space
 ```
 ## PVC - *PhysicalVolumeClaim*
@@ -75,6 +83,8 @@ oc exec  <pd> -i -t -- <command>
 ```
 oc get events                 # list events inside cluster
 oc logs pod                   # get logs from pod
+oc logs <pod> --timestamps    
+oc logs -f bc/myappx          
 oc rsh <pod>                  # login to a pod
 ```
 ## Applications
@@ -90,7 +100,10 @@ oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
 ```
 # oc help                     # list oc command help options
 ```
-
+## Build from image
+```
+oc new-build openshift/nodejs-010-centos7~https://github.com/openshift/nodejs-ex.git --name='newbuildtest'
+```
 
 ```
 oc describe RESOURCE RESOURCE_NAME
@@ -366,9 +379,6 @@ oc get bc/nodejs-ex -o yaml
 
 - unless specified otherwise, the `oc new-app` command will scan the supplied Git repo. If it finds a Dockerfile, the Docker build strategy will be used; otherwise source strategy will be used and an S2I builder will be configured
 
-```
-oc new-build openshift/nodejs-010-centos7~https://github.com/openshift/nodejs-ex.git --name='newbuildtest'
-```
 
 ### S2I
 
