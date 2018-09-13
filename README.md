@@ -47,6 +47,8 @@ oc get nodes                  # list nodes in a cluster
 ## oc describe 
 ```
 oc describe node <node1>      # show deatils of a specific resource
+oc describe policybindings :default -n <project/namsspace>
+                              # show details of a project policy details 
 ```
 ## oc Export 
 ```
