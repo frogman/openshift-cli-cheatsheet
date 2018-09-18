@@ -105,6 +105,12 @@ oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
 oc new-build openshift/nodejs-010-centos7~https://github.com/openshift/nodejs-ex.git --name='newbuildtest'
 ```
 
+## Enable/Disable scheduling
+```
+oadm manage-node mycbjnode --schedulable=false 
+                              # Disable scheduling on node
+```
+
 ```
 oc describe RESOURCE RESOURCE_NAME
 
