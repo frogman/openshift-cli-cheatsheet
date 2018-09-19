@@ -87,6 +87,7 @@ oc logs <pod> --timestamps
 oc logs -f bc/myappx          
 oc rsh <pod>                  # login to a pod
 ```
+
 ## Applications
 ```
 oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=mydb -l db=mysql
