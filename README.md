@@ -3,6 +3,7 @@
 
 http://bit.ly/gineesh | www.techbeatly.com
 Refer forked repo : https://github.com/ginigangadharan/openshift-cheatsheet
+https://gist.github.com/rafaeltuelho/111850b0db31106a4d12a186e1fbc53e
 
 ## OpenShift  CLI
 oc command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
@@ -86,6 +87,13 @@ oc logs pod                   # get logs from pod
 oc logs <pod> --timestamps    
 oc logs -f bc/myappx          
 oc rsh <pod>                  # login to a pod
+```
+
+## Understand and Help
+```
+oc explain <resource>         # documentation of a resource and its fields
+                                eg: oc explain pod
+                                    oc explain pod.spec.volumes.configMap
 ```
 
 ## Applications
