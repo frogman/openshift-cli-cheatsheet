@@ -69,6 +69,10 @@ oc get pods                   # list running pods inside a project
 oc get pods -o wide           # detailed listing of pods
 oc get pod -o name            # for pod names
 oc get pods -n *<project>*    # list running pods inside a project/name-space
+oc get po POD_NAME -o=jsonpath="{..image}"
+                              # get othe pod image details
+oc get po POD_NAME -o=jsonpath="{..uid}"
+                              # get othe pod uid details
 ```
 ## PVC - *PhysicalVolumeClaim*
 ``` 
