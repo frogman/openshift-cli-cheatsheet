@@ -99,7 +99,6 @@ oc explain <resource>         # documentation of a resource and its fields
                                 eg: oc explain pod
                                     oc explain pod.spec.volumes.configMap
 ```
-
 ## Applications
 ```
 oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=mydb -l db=mysql
@@ -123,6 +122,7 @@ oc new-build openshift/nodejs-010-centos7~https://github.com/openshift/nodejs-ex
 oadm manage-node mycbjnode --schedulable=false 
                               # Disable scheduling on node
 ```
+
 
 ```
 oc describe RESOURCE RESOURCE_NAME
