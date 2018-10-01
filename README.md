@@ -125,6 +125,31 @@ oadm manage-node mycbjnode --schedulable=false
                               # Disable scheduling on node
 ```
 
+### Resource quotas
+
+Hard constraints how much memory/CPU your project can consume
+
+```
+oc create -f <YAML_FILE_with_kind: ResourceQuota> -n PROJECT_NAME
+                              # create quota details with YAML tempalte where kind should ResourceQuota
+                              # Sample : https://github.com/ginigangadharan/openshift-cli-cheatsheet/blob/master/quota-template-32Gi_no_limit.yaml
+oc describe quota -n PROJECT_NAME
+                              # describe the quota details
+oc get quota -n PROJECT_NAME  
+                              # get quota details of the project
+oc delete quota -n PROJECT_NAME 
+                              # delete a quota for the project
+```
+
+### Limit ranges
+
+- mechanism for specifying default project CPU and memory limits and requests
+
+```
+oc get limits -n development
+
+oc describe limits core-resource-limits -n development
+```
 
 ```
 oc describe RESOURCE RESOURCE_NAME
@@ -479,29 +504,7 @@ oc cluster up --metrics=true
 
 4. might get CPU starved (wait to schedule your workload)
 
-### Resource quotas
 
-- hard constraints how much memory/CPU your project can consume
-
-```
-
-
-
-
-oc create -n development -f <YAML FILE HERE kind: ResourceQuota>
-
-oc describe quota -n development
-```
-
-### Limit ranges
-
-- mechanism for specifying default project CPU and memory limits and requests
-
-```
-oc get limits -n development
-
-oc describe limits core-resource-limits -n development
-```
 
 ### Multiproject quota
 
