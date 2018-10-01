@@ -125,7 +125,7 @@ oadm manage-node mycbjnode --schedulable=false
                               # Disable scheduling on node
 ```
 
-### Resource quotas
+## Resource quotas
 
 Hard constraints how much memory/CPU your project can consume
 
@@ -141,7 +141,7 @@ oc delete quota -n PROJECT_NAME
                               # delete a quota for the project
 ```
 
-### Limit ranges
+## Limit ranges
 
 - mechanism for specifying default project CPU and memory limits and requests
 
@@ -149,6 +149,15 @@ oc delete quota -n PROJECT_NAME
 oc get limits -n development
 
 oc describe limits core-resource-limits -n development
+```
+
+## ClusterQuota or ClusterResourceQuota
+Ref: https://docs.openshift.com/container-platform/3.3/admin_guide/multiproject_quota.html
+```
+oc create clusterquota for-user-developer --project-annotation-selector openshift.io/requester=developer --hard pods=8
+oc get clusterresourcequota |grep USER
+                              # find the clusterresourcequota for USER
+oc describe clusterresourcequota USER
 ```
 
 ```
@@ -513,7 +522,6 @@ oc cluster up --metrics=true
 ```
 oc login -u system:admin
 
-oc create clusterquota for-user-developer --project-annotation-selector openshift.io/requester=developer --hard pods=8
 
 oc login -u developer -p developer
 
