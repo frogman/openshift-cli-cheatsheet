@@ -56,7 +56,9 @@ oc adm policy add-cluster-role-to-user cluster-admin develoer
 ```
 oc describe node <node1>      # show deatils of a specific resource
 oc describe policybindings :default -n <project/namsspace>
-                              # show details of a project policy details 
+                              # OCP 3.7 < show details of a project policy details 
+oc describe rolebinding.rbac -n PROJECT_NAME
+                              # OCP 3.7 > show details of a project policy details 
 ```
 ## oc Export 
 ```
