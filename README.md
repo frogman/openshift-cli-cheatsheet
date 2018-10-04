@@ -46,6 +46,8 @@ oc delete all --all           # delete all from a project
 oc get all                    # list all resource items
                                 -w  watches the result output in realtime.
 oc get nodes                  # list nodes in a cluster
+oc get node/<node_name> -o yaml
+                              # to see a node’s current capacity and allocatable resources
 ```
 ## Managing Users
 ```
@@ -89,7 +91,7 @@ oc exec  <pd> -i -t -- <command>
 ## Events and Troubleshooting
 ```
 oc get events                 # list events inside cluster
-oc logs pod                   # get logs from pod
+oc logs POD                   # get logs from pod
 oc logs <pod> --timestamps    
 oc logs -f bc/myappx          
 oc rsh <pod>                  # login to a pod
