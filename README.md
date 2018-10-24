@@ -162,6 +162,10 @@ oc get clusterresourcequota |grep USER
 oc describe clusterresourcequota USER
 ```
 
+## Config View
+oc config view                  # command to view your current, full CLI configuration
+                                  also can see the cluster url, project url etc.
+
 ```
 oc describe RESOURCE RESOURCE_NAME
 
