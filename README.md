@@ -38,6 +38,9 @@ oc get project                # Display current project
 oc project myproject          # switch to a project
 oc new-project testlab --display-name='testlab' --description='testlab'        
                               # create a new project
+oc adm new-project testlab --node-selector='project101=testlab'
+                              # create a new project with node-selector. 
+                              # Project pods will be created only those nodes with a label "project101=testlab"
 oc delete project testlab     # delete a project
 oc delete all --all           # delete all from a project
 ```
