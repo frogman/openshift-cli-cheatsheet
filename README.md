@@ -51,6 +51,8 @@ oc get all                    # list all resource items
 oc get nodes                  # list nodes in a cluster
 oc get node/<node_name> -o yaml
                               # to see a node’s current capacity and allocatable resources
+oc get nodes --show-labels | grep -i "project101=testlab"
+                              # show nodes info with lable and list only node with a lable "project101=testlab"
 ```
 ## Managing Users
 ```
