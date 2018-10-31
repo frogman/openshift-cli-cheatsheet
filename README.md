@@ -148,6 +148,21 @@ oc delete quota -n PROJECT_NAME
                               # delete a quota for the project
 ```
 
+## Labels & Annotations
+
+1. Label examples: release, environment, relationship, dmzbased, tier, node type, user type
+    - Identifying metadata consisting of key/value pairs attached to resources
+2. Annotation examples: example.com/skipValidation=true, example.com/MD5checksum-1234ABC, example.com/BUILDDATE=20171217
+    - Primarily concerned with attaching non-identifying information, which is used by other clients such as tools or libraries
+
+```
+oc patch node NODE_NAME -p '{"metadata": {"labels": {"project101":"testlab"}}}'
+                              # add label
+oc label secret ssl-secret env=test
+                              # add label                              
+```
+
+
 ## Limit ranges
 
 - mechanism for specifying default project CPU and memory limits and requests
@@ -318,8 +333,6 @@ oc secret new test-secret cert.pem
 
 oc secret new ssl-secret keys=key.pem certs=cert.pem
 
-oc label secret ssl-secret env=test
-
 oc get secrets --show-labels=true
 
 oc delete secret ssl-secret
@@ -404,12 +417,6 @@ oc set env dc/nodejs-ex DB_ENV-
 2. `ConfigChange` - when the config of the pod template changes
 
 
-## Labels & Annotations
-
-1. Label examples: release, environment, relationship, dmzbased, tier, node type, user type
-    - Identifying metadata consisting of key/value pairs attached to resources
-2. Annotation examples: example.com/skipValidation=true, example.com/MD5checksum-1234ABC, example.com/BUILDDATE=20171217
-    - Primarily concerned with attaching non-identifying information, which is used by other clients such as tools or libraries
 
 ## OpenShift Builds
 
