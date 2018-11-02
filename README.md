@@ -147,9 +147,7 @@ oc get quota -n PROJECT_NAME
 oc delete quota -n PROJECT_NAME 
                               # delete a quota for the project
 ```
-
 ## Labels & Annotations
-
 1. Label examples: release, environment, relationship, dmzbased, tier, node type, user type
     - Identifying metadata consisting of key/value pairs attached to resources
 2. Annotation examples: example.com/skipValidation=true, example.com/MD5checksum-1234ABC, example.com/BUILDDATE=20171217
@@ -161,8 +159,6 @@ oc patch node NODE_NAME -p '{"metadata": {"labels": {"project101":"testlab"}}}'
 oc label secret ssl-secret env=test
                               # add label                              
 ```
-
-
 ## Limit ranges
 
 - mechanism for specifying default project CPU and memory limits and requests
@@ -172,7 +168,6 @@ oc get limits -n development
 
 oc describe limits core-resource-limits -n development
 ```
-
 ## ClusterQuota or ClusterResourceQuota
 Ref: https://docs.openshift.com/container-platform/3.3/admin_guide/multiproject_quota.html
 ```
@@ -181,12 +176,22 @@ oc get clusterresourcequota |grep USER
                               # find the clusterresourcequota for USER
 oc describe clusterresourcequota USER
 ```
-
 ## Config View
+```
 oc config view                  # command to view your current, full CLI configuration
                                   also can see the cluster url, project url etc.
-
 ```
+## Managing Environment Variables
+https://docs.openshift.com/enterprise/3.0/dev_guide/environment_variables.html
+```
+oc env rc/RC_NAME --list -n PROJECT
+                                # list environment variable for the rc
+oc env rc my-newapp MAX_HEAP_SIZE=128M
+                                # set environment variable for the rc
+
+## The replication controller
+<tobe done>
+
 oc describe RESOURCE RESOURCE_NAME
 
 oc export
@@ -242,7 +247,6 @@ oc expose service cotd
 
 ## Deployments
 
-### The replication controller
 
 ### Deployment strategies
 
