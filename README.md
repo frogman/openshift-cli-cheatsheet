@@ -188,9 +188,15 @@ oc env rc/RC_NAME --list -n PROJECT
                                 # list environment variable for the rc
 oc env rc my-newapp MAX_HEAP_SIZE=128M
                                 # set environment variable for the rc
+```
+## Security Context Constraints
+```
+oc get scc
+```
+
 
 ## The replication controller
-<tobe done>
+<to be done>
 
 oc describe RESOURCE RESOURCE_NAME
 
