@@ -83,7 +83,7 @@ oc get po POD_NAME -o=jsonpath="{..image}"
 oc get po POD_NAME -o=jsonpath="{..uid}"
                               # get othe pod uid details
 ```
-## PVC - *PhysicalVolumeClaim*
+## PVC - *PhysicalVolumeClaim* 
 ``` 
 oc get pvc                    # list pvc
 ```
