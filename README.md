@@ -82,6 +82,8 @@ oc get po POD_NAME -o=jsonpath="{..image}"
                               # get othe pod image details
 oc get po POD_NAME -o=jsonpath="{..uid}"
                               # get othe pod uid details
+oc adm manage-node NODE_NAME --list-pods
+                              # list all pods running on specific node
 ```
 ## PVC - *PhysicalVolumeClaim* 
 ``` 
