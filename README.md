@@ -200,6 +200,20 @@ oc env rc my-newapp MAX_HEAP_SIZE=128M
 oc get scc
 ```
 
+## Services & Routes
+```
+oc expose service SERVICE_NAME route-name-project-name.default-domain
+or
+oc expose svc SERVICE_NAME
+                                # create/expose a service route
+eg:
+oc expose service myapache --name=myapache --hostname=myapache.app.cloudapps.example.com
+                                # if you don't mention the hostname, then
+                                # it will create a hostname as route-name-project-name.default-domain
+                                # if you don't mention the route name, then
+                                # it will take the service name as route name
+```                               
+
 
 ## The replication controller
 <to be done>
@@ -240,7 +254,6 @@ oc cluster up \
 
 oc project myproject
 
-oc expose service cotd
 ```
 
 ## Create persistent volume
