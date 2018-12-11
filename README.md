@@ -55,6 +55,7 @@ oc get node/NODE_NAME -o yaml
                               # to see a node’s current capacity and allocatable resources
 oc get nodes --show-labels | grep -i "project101=testlab"
                               # show nodes info with lable and list only node with a lable "project101=testlab"
+oc process                    # process a template into list of resources.                              
 ```
 ## Managing Users
 ```
