@@ -70,10 +70,13 @@ oc describe policybindings :default -n <project/namsspace>
 oc describe rolebinding.rbac -n PROJECT_NAME
                               # OCP 3.7 > show details of a project policy details 
 ```
-## oc Export 
+## oc export 
 ```
-oc export pod mysql-1-p1d35   
+oc export RESOURCE_TYPE RESOURCE_NAME -o OUTPUT_FORMAT
                               # export a definition of a resource (creating a backup etc) in JSON or YAML format.
+oc export pod mysql-1-p1d35 -o yaml
+oc export svc/myapp -o json
+
 ```
 ## Managing pods
 ```
