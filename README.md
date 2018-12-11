@@ -58,6 +58,7 @@ oc get nodes --show-labels | grep -i "project101=testlab"
 ## Managing Users
 ```
 oc adm policy add-cluster-role-to-user cluster-admin develoer
+oc get sa                     # list all service accounts
 ```
 
 ## oc describe 
