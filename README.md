@@ -30,6 +30,7 @@ oc logout                     # logout from cluster
 ## oc status
 ```
 oc status -v                  # get oc cluster status
+oc types                      # to list all concepts and types
 ```
 ## Managing Projects
 ```
