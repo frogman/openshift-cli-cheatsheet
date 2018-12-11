@@ -44,6 +44,7 @@ oc adm new-project testlab --node-selector='project101=testlab'
                               # Project pods will be created only those nodes with a label "project101=testlab"
 oc delete project testlab     # delete a project
 oc delete all --all           # delete all from a project
+oc delete all -l app=web      # delete all where label app=web
 ```
 ## Resources
 ```
