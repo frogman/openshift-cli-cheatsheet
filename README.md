@@ -6,7 +6,7 @@ Refer forked repo : https://github.com/ginigangadharan/openshift-cheatsheet
 https://gist.github.com/rafaeltuelho/111850b0db31106a4d12a186e1fbc53e
 
 ## OpenShift  CLI - Installation
-```oc command line``` tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
+```oc``` command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
 Download oc cli tool from : https://www.okd.io/download.html
 
 On a RHEL system with valid subscription you can install with yum as below.
