@@ -123,6 +123,11 @@ oc explain <resource>         # documentation of a resource and its fields
                                     oc explain pod.spec.volumes.configMap
 ```
 ## Applications
+oc new-app will create a,
+- dc (deploynment configuration)
+- is (image stream)
+- svc (service)
+
 ```
 oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=mydb -l db=mysql
                               # create a new application
