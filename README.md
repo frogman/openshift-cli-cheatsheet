@@ -135,6 +135,7 @@ oc new-app --docker-image=myregistry.example.com/dockers/myapp --name=myapp
                               # create a new application from private registry
 oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
                               # create a new application from source code (s2i)
+                              # -i or --image-stream=[] : Name of an image stream to use in the app
 ```
 ## Get Help
 ```
