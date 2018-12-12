@@ -70,6 +70,9 @@ oc describe policybindings :default -n <project/namsspace>
                               # OCP 3.7 < show details of a project policy details 
 oc describe rolebinding.rbac -n PROJECT_NAME
                               # OCP 3.7 > show details of a project policy details 
+oc describe pod POD_NAME      # pod details                               
+oc describe svc SERVICE_NAME  # service details                               
+oc describe route ROUTE_NAME  # route details                               
 ```
 ## oc export 
 ```
