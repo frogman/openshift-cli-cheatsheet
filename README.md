@@ -144,7 +144,7 @@ oc explain <resource>         # documentation of a resource and its fields
                                     oc explain pod.spec.volumes.configMap
 ```
 ## Applications
-oc new-app will create a,
+```oc new-app``` will create a,
 - dc (deploynment configuration)
 - is (image stream)
 - svc (service)
