@@ -214,8 +214,12 @@ oc delete quota -n PROJECT_NAME
     - Primarily concerned with attaching non-identifying information, which is used by other clients such as tools or libraries
 
 ```
+oc label node1 region=us-west zone=power1a --overwrite
+oc label node node2 region=apac-sg zone=power2b --overwrite
 oc patch node NODE_NAME -p '{"metadata": {"labels": {"project101":"testlab"}}}'
-                              # add label
+                              # add label to node
+oc patch dc myapp --patch '{"spec":{"template":{"nodeselector":{"env":"qa"}}}'
+                              # modify dc to run pods only on nodes where label 'evn':'qa'
 oc label secret ssl-secret env=test
                               # add label                              
 ```
