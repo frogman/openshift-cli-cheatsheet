@@ -579,10 +579,6 @@ oc get bc/nodejs-ex -o yaml
 
 2. Custom S2I builder - write your own custom builder
 
-## Adding a New Builder Image
-
-## Building a Sample Application
-
 ## Troubleshooting
 
 - Adding the --follow flag to the start-build command
