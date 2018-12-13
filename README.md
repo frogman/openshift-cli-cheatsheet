@@ -57,19 +57,35 @@ oc get nodes --show-labels | grep -i "project101=testlab"
                               # show nodes info with lable and list only node with a lable "project101=testlab"
 oc process                    # process a template into list of resources.                              
 ```
-## Managing Users
+## Controlling Access & Managing Users
 ```
+oc adm create USER_NAME       # create a user
+oc adm add-role-to-user ROLE_NAME USERNAME -n PROJECT_NAME
+                              # add role to a user
+                              # add-role-to-group - to add role to a group
+eg:
+oc adm add-role-to-user edit demo-user -n demo-project
 oc adm policy add-cluster-role-to-user cluster-admin develoer
+                              # add cluster-admin role to the user developer                              
+oc adm policy remove-cluster-role-from-group \
+  self-provisioner \
+  system:authenticated \
+  system:authenticated:oauth
+                              # remove role from a group
 oc get sa                     # list all service accounts
+oc get cluserrole             # list all cluster roles
+oc get rolebinding -n PROJECT_NAME
+                              # list all roles details for the project
+oc describe policybindings :default -n PROJECT_NAME
+                              # OCP 3.7 < show details of a project policy details 
+oc describe rolebinding.rbac -n PROJECT_NAME
+                              # OCP 3.7 > show details of a project policy details  
+oc describe user USER_NAME    # details of a user                              
 ```
 
 ## oc describe 
 ```
 oc describe node <node1>      # show deatils of a specific resource
-oc describe policybindings :default -n <project/namsspace>
-                              # OCP 3.7 < show details of a project policy details 
-oc describe rolebinding.rbac -n PROJECT_NAME
-                              # OCP 3.7 > show details of a project policy details 
 oc describe pod POD_NAME      # pod details                               
 oc describe svc SERVICE_NAME  # service details                               
 oc describe route ROUTE_NAME  # route details                               
