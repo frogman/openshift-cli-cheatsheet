@@ -61,8 +61,10 @@ oc process                    # process a template into list of resources.
 ```
 oc adm create USER_NAME       # create a user
 oc adm add-role-to-user ROLE_NAME USERNAME -n PROJECT_NAME
-                              # add role to a user
+                              # add cluster role to a user
                               # add-role-to-group - to add role to a group
+                              # add-cluster-role-to-user - to add cluster role to a user
+                              # add-cluster-role-to-group - to add cluster role to a group
 eg:
 oc adm add-role-to-user edit demo-user -n demo-project
 oc adm policy add-cluster-role-to-user cluster-admin develoer
@@ -80,7 +82,9 @@ oc describe policybindings :default -n PROJECT_NAME
                               # OCP 3.7 < show details of a project policy details 
 oc describe rolebinding.rbac -n PROJECT_NAME
                               # OCP 3.7 > show details of a project policy details  
-oc describe user USER_NAME    # details of a user                              
+oc describe user USER_NAME    # details of a user    
+oc adm policy who-can edit pod -n PROJECT_NAME
+                              # list details of access
 ```
 
 ## oc describe 
