@@ -250,7 +250,14 @@ oc expose service myapache --name=myapache --hostname=myapache.app.cloudapps.exa
 oc port-forward POD_NAME 3306:3306
                                 # temporary port-forwarding to a port from local host.
 ```                               
+## Auto scaling of the pod - HorizontalPodAutoscaler
 
+```
+oc autoscale dc my-app --min 1 --max 4 --cpu-percent=75
+                                # enable autoscaling for my-app
+oc get hpa my-app               # list Horizontal Pod Autoscaler
+oc describe hpa/my-app
+```
 
 ## The replication controller
 <to be done>
@@ -310,21 +317,21 @@ oc project myproject
 ## Deployments
 
 
-### Deployment strategies
+## Deployment strategies
 
-#### Rolling
+## Rolling
 
-#### Triggers
+## Triggers
 
-#### Recreate
+## Recreate
 
-#### Custom
+## Custom
 
-#### Lifecycle hooks
+## Lifecycle hooks
 
-#### Deployment Pod Resources
+## Deployment Pod Resources
 
-### Blue-Green deployments
+## Blue-Green deployments
 
 ```
 oc new-app https://github.com/devops-with-openshift/bluegreen#green --name=green
@@ -334,7 +341,7 @@ oc patch route/bluegreen -p '{"spec":{"to":{"name":"green"}}}'
 oc patch route/bluegreen -p '{"spec":{"to":{"name":"blue"}}}'
 ```
 
-### A/B Deployments
+## A/B Deployments
 
 ```
 oc annotate route/ab haproxy.router.openshift.io/balance=roundrobin
@@ -344,9 +351,9 @@ oc set route-backends ab cats=100 city=0
 oc set route-backends ab --adjust city=+10%
 ```
 
-### Canary Deployments
+## Canary Deployments
 
-### Rollbacks
+## Rollbacks
 
 ```
 oc rollback cotd --to-version=1 --dry-run
@@ -390,7 +397,7 @@ jenkinsPipelineConfig:
 
 ## Secrets
 
-### Creation
+## Creation
 
 - /!\ Maximum size 1MB /!\
 
@@ -404,7 +411,7 @@ oc get secrets --show-labels=true
 oc delete secret ssl-secret
 ```
 
-### Using secrets in Pods
+## Using secrets in Pods
 
 - Mounting the secret as a volume
 
@@ -428,7 +435,7 @@ oc env dc/nodejs-ex --list
 
 - Similar to secrets, but with non-sensitive text-based configuration
 
-### Creation
+## Creation
 
 ```
 oc create configmap test-config --from-literal=key1=config1 --from-literal=key2=config2 --from-file=filters.properties
@@ -436,13 +443,13 @@ oc create configmap test-config --from-literal=key1=config1 --from-literal=key2=
 oc volume dc/nodejs-ex --add -t configmap -m /etc/config --name=app-config --configmap-name=test-config
 ```
 
-### Reading config maps
+## Reading config maps
 
 ```
 oc rsh nodejs-ex-26-44kdm ls /etc/config
 ```
 
-### Dynamically change the config map
+## Dynamically change the config map
 
 ```
 oc delete configmap test-config
@@ -452,7 +459,7 @@ oc delete configmap test-config
 <NO NEED FOR MOUNTING AS VOLUME AGAIN>
 ```
 
-### Mounting config map as ENV
+## Mounting config map as ENV
 
 ```
 oc set env dc/nodejs-ex --from=configmap/test-config
@@ -462,7 +469,7 @@ oc describe pod nodejs-ex-27-mqurr
 
 ## ENV
 
-### Adding
+## Adding
 
 ```
 oc set env dc/nodejs-ex ENV=TEST DB_ENV=TEST1 AUTO_COMMIT=true
@@ -470,7 +477,7 @@ oc set env dc/nodejs-ex ENV=TEST DB_ENV=TEST1 AUTO_COMMIT=true
 oc set env dc/nodejs-ex --list
 ```
 
-### Removing
+## Removing
 
 ```
 oc set env dc/nodejs-ex DB_ENV-
@@ -496,7 +503,7 @@ oc set env dc/nodejs-ex DB_ENV-
 
 - Custom: allows the developer to provide a customized builder image to build runtime image
 
-### Build sources
+## Build sources
 
 - Git
 
@@ -506,7 +513,7 @@ oc set env dc/nodejs-ex DB_ENV-
 
 - Binary
 
-### Build Configurations
+## Build Configurations
 
 - contains the details of the chosen build strategy as well as the source
 
@@ -519,7 +526,7 @@ oc get bc/nodejs-ex -o yaml
 - unless specified otherwise, the `oc new-app` command will scan the supplied Git repo. If it finds a Dockerfile, the Docker build strategy will be used; otherwise source strategy will be used and an S2I builder will be configured
 
 
-### S2I
+## S2I
 
 - Components:
 
@@ -545,11 +552,11 @@ oc get bc/nodejs-ex -o yaml
 
 2. Custom S2I builder - write your own custom builder
 
-#### Adding a New Builder Image
+## Adding a New Builder Image
 
-#### Building a Sample Application
+## Building a Sample Application
 
-#### Troubleshooting
+## Troubleshooting
 
 - Adding the --follow flag to the start-build command
 
@@ -569,7 +576,7 @@ oc get bc/nodejs-ex -o yaml
 
 3. Application operations - deployments, telemetry, logging
 
-### Integrated logging
+# Integrated logging
 
 - the EFK (Elasticsearch/Fluentd/Kibana) stack aggregates logs from nodes and application pods
 
@@ -577,7 +584,7 @@ oc get bc/nodejs-ex -o yaml
 oc cluster up --logging=true
 ```
 
-### Simple metrics
+## Simple metrics
 
 - the Kubelet/Heapster/Cassandra and you can use Grafana to build dashboard
 
@@ -585,7 +592,7 @@ oc cluster up --logging=true
 oc cluster up --metrics=true
 ```
 
-### Resource scheduling
+## Resource scheduling
 
 - default behavior:
 
@@ -599,7 +606,7 @@ oc cluster up --metrics=true
 
 
 
-### Multiproject quota
+## Multiproject quota
 
 - you may use project labels or annotations when creating multiproject spanning quotas
 
@@ -612,10 +619,3 @@ oc login -u developer -p developer
 oc describe AppliedClusterResourceQuota
 ```
 
-### Auto scaling of the pod
-
-```
-oc autoscale dc myapp --min 1 --max 4 --cpu-percent=75
-
-oc get hpa myapp
-```
