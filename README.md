@@ -232,7 +232,14 @@ oc env rc my-newapp MAX_HEAP_SIZE=128M
 ```
 ## Security Context Constraints
 ```
-oc get scc
+oc get scc                      # list all seven SCCs
+                                      - anyuid
+                                      - hostaccess
+                                      - Hostmount-anyuid
+                                      - hostnetwork    	
+                                      - nonroot
+                                      - privileged
+                                      - restricted
 ```
 
 ## Services & Routes
