@@ -87,6 +87,13 @@ oc describe user USER_NAME    # details of a user
 oc adm policy who-can edit pod -n PROJECT_NAME
                               # list details of access
 ```
+You can also create user with HTPasswdIdentityProvider module as below.
+```
+htpasswd -b /etc/origin/master/htpasswd user1 password1
+                              # create user1; -b used to take password from command line rather than promopting for it.
+htpasswd -D /etc/origin/master/htpasswd user1
+                              # -D deletes user1
+```                              
 
 ## oc describe 
 ```
