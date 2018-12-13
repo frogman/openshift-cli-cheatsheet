@@ -240,6 +240,7 @@ oc get scc                      # list all seven SCCs
                                       - nonroot
                                       - privileged
                                       - restricted
+oc describe scc SCC_NAME        # can see which all service account enabled.                                      
 ```
 
 ## Services & Routes
