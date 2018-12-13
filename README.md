@@ -226,6 +226,9 @@ oc expose service myapache --name=myapache --hostname=myapache.app.cloudapps.exa
                                 # it will create a hostname as route-name-project-name.default-domain
                                 # if you don't mention the route name, then
                                 # it will take the service name as route name
+
+oc port-forward POD_NAME 3306:3306
+                                # temporary port-forwarding to a port from local host.
 ```                               
 
 
