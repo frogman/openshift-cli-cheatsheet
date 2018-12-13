@@ -259,6 +259,41 @@ oc autoscale dc my-app --min 1 --max 4 --cpu-percent=75
 oc get hpa my-app               # list Horizontal Pod Autoscaler
 oc describe hpa/my-app
 ```
+## Configuration Maps (ConfigMap)
+
+- Similar to secrets, but with non-sensitive text-based configuration
+
+## Creation
+
+```
+oc create configmap test-config --from-literal=key1=config1 --from-literal=key2=config2 --from-file=filters.properties
+
+oc volume dc/nodejs-ex --add -t configmap -m /etc/config --name=app-config --configmap-name=test-config
+```
+
+## Reading config maps
+
+```
+oc rsh nodejs-ex-26-44kdm ls /etc/config
+```
+
+## Dynamically change the config map
+
+```
+oc delete configmap test-config
+
+<CREATE AGAIN WITH NEW VALUES>
+
+<NO NEED FOR MOUNTING AS VOLUME AGAIN>
+```
+
+## Mounting config map as ENV
+
+```
+oc set env dc/nodejs-ex --from=configmap/test-config
+
+oc describe pod nodejs-ex-27-mqurr
+```
 
 ## The replication controller
 <to be done>
@@ -432,41 +467,7 @@ oc set env dc/nodejs-ex --from=secret/env-secret
 oc env dc/nodejs-ex --list
 ```
 
-## Configuration Maps
 
-- Similar to secrets, but with non-sensitive text-based configuration
-
-## Creation
-
-```
-oc create configmap test-config --from-literal=key1=config1 --from-literal=key2=config2 --from-file=filters.properties
-
-oc volume dc/nodejs-ex --add -t configmap -m /etc/config --name=app-config --configmap-name=test-config
-```
-
-## Reading config maps
-
-```
-oc rsh nodejs-ex-26-44kdm ls /etc/config
-```
-
-## Dynamically change the config map
-
-```
-oc delete configmap test-config
-
-<CREATE AGAIN WITH NEW VALUES>
-
-<NO NEED FOR MOUNTING AS VOLUME AGAIN>
-```
-
-## Mounting config map as ENV
-
-```
-oc set env dc/nodejs-ex --from=configmap/test-config
-
-oc describe pod nodejs-ex-27-mqurr
-```
 
 ## ENV
 
