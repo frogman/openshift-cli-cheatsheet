@@ -126,9 +126,18 @@ oc adm manage-node NODE_NAME --list-pods
 oc scale dc/APP_NAME --replicas=2                              
                               # scale application (increase or decrease replicas)
 ```
-## PVC - *PhysicalVolumeClaim* 
+## PV & PVC - PhysicalVolume & PhysicalVolumeClaim
 ``` 
-oc get pvc                    # list pvc
+oc get pv                     # list all pv in the cluster
+oc create -f mysqldb-pv.yml   # create a pv with template
+oc get pvc -n PROJECT_NAME    # list all pvc in the project
+oc set volume dc/mysqldb \
+  --add --overwrite --name=mysqldb-volume-1 -t pvc \
+  --claim-name=mysqldb-pvclaim \
+  --claim-size=3Gi \
+  --claim-mode='ReadWriteMany'
+                              # Create volume claim for mysqldb-volume-1
+
 ```
 ## oc exec - execute command inside a containe
 ```
