@@ -5,5 +5,6 @@ metadata:
   name: quota-32gi
 spec:
   hard:
+    services: 10
     requests.cpu: 19200m
     requests.memory: 32Gi
