@@ -599,6 +599,9 @@ oc get bc/nodejs-ex -o yaml
 - oc logs build/test-app-3
 
 - oc set env bc/test-app BUILD_LOGLEVEL=5 S2I_DEBUG=true
+```
+oc adm diagnostics
+```
 
 ## Application Management
 
