@@ -286,7 +286,7 @@ oc expose service myapache --name=myapache --hostname=myapache.app.cloudapps.exa
 
 oc port-forward POD_NAME 3306:3306
                                 # temporary port-forwarding to a port from local host.
-```                               
+```   
 ## Auto scaling of the pod - HorizontalPodAutoscaler
 
 ```
@@ -653,3 +653,10 @@ oc login -u developer -p developer
 oc describe AppliedClusterResourceQuota
 ```
 
+## Essential Docker Commands
+```
+docker login -u USER_NAME -p TOKEN REGISTRY_URL
+                                # before we push images, we need to login to docker registry.
+docker login -u developer -p ${TOKEN} docker-registry-default.apps.lab.example.com                                
+                                # TOKEN can be get as TOKEN=$(oc whoami)
+```
