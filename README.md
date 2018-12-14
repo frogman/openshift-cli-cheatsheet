@@ -177,6 +177,11 @@ oc new-app https://github.com/techbeatly/python-hello-world --name=python-hello
                               # create a new application from source code (s2i)
                               # -i or --image-stream=[] : Name of an image stream to use in the app
 ```
+How to find registry ?
+```
+oc get route -n default       # you can see the registry url
+```
+
 ## Get Help
 ```
 # oc help                     # list oc command help options
