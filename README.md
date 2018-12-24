@@ -1,6 +1,6 @@
 # openshift-cli-cheatsheet
 For Quick Access
-http://bit.ly/gineesh | www.techbeatly.com
+[LinkedIn](http://bit.ly/gineesh) | [www.techbeatly.com](www.techbeatly.com)
 
 
 ## OpenShift  CLI - Installation
