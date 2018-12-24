@@ -16,7 +16,7 @@ Many common oc operations are invoked using the following syntax:
 $ oc <action> <object_type> <object_name_or_id>
 ```
 
-## Login and Logout
+## Login and Logout 
 ```
 oc login https://10.142.0.2:8443 -u admin -p openshift 
                               # Login to openshift cluster
