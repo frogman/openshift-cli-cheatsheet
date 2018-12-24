@@ -2,6 +2,7 @@
 For Quick Access
 http://bit.ly/gineesh | www.techbeatly.com
 
+
 ## OpenShift  CLI - Installation
 ```oc``` command line tool will be installed on all master and node machines during cluster installation. You can also install oc utility on any other machines which is not part of openshift cluster. 
 Download oc cli tool from : https://www.okd.io/download.html
