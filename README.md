@@ -16,7 +16,7 @@ Many common oc operations are invoked using the following syntax:
 $ oc <action> <object_type> <object_name_or_id>
 ```
 
-## Login and Logout 
+## Login and Logout
 ```
 oc login https://10.142.0.2:8443 -u admin -p openshift 
                               # Login to openshift cluster
@@ -210,8 +210,9 @@ oc describe quota -n PROJECT_NAME
 oc get quota -n PROJECT_NAME  
                               # get quota details of the project
 oc delete quota -n PROJECT_NAME 
-                              # delete a quota for the project
+                              # delete a quota for the project                            
 ```
+
 ## Labels & Annotations
 1. Label examples: release, environment, relationship, dmzbased, tier, node type, user type
     - Identifying metadata consisting of key/value pairs attached to resources
