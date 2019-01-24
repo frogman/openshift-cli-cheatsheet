@@ -115,7 +115,7 @@ oc export svc/myapp -o json
 oc get pods                   # list running pods inside a project
 oc get pods -o wide           # detailed listing of pods
 oc get pod -o name            # for pod names
-oc get pods -n *<project>*    # list running pods inside a project/name-space
+oc get pods -n PROJECT_NAME    # list running pods inside a project/name-space
 oc get po POD_NAME -o=jsonpath="{..image}"
                               # get othe pod image details
 oc get po POD_NAME -o=jsonpath="{..uid}"
@@ -128,6 +128,9 @@ oc rollout history dc/<name>  # available revisions
 oc rollout latest hello       # deploy a new version of app.
 oc rollout undo dc/<name>     # rollback to the last successful deployed revision of your configuration
 oc rollout cancel dc/hello    # cancel current depoyment 
+
+oc delete pod POD_NAME -n PROJECT_NAME --grace-period=0 --force
+                              # delete a pod forcefully
 ```
 ## PV & PVC - PhysicalVolume & PhysicalVolumeClaim
 ``` 
