@@ -132,7 +132,7 @@ oc rollout cancel dc/hello    # cancel current depoyment
 oc delete pod POD_NAME -n PROJECT_NAME --grace-period=0 --force
                               # delete a pod forcefully
                               # if pod still stays in Terminating state, try replace deletionTimestamp: null
-                              # as well as finalizers: null
+                              # as well as finalizers: null  (it may contain an item foregroundDeletion, remove that)
 ```
 ## PV & PVC - PhysicalVolume & PhysicalVolumeClaim
 ``` 
