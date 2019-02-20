@@ -75,7 +75,7 @@ oc adm policy remove-cluster-role-from-group \
   system:authenticated:oauth
                               # remove role from a group
 oc get sa                     # list all service accounts
-oc get cluserrole             # list all cluster roles
+oc get cluserrole             # list all cluster rolesrole  
 oc get rolebinding -n PROJECT_NAME
                               # list all roles details for the project
 oc describe policybindings :default -n PROJECT_NAME
@@ -134,6 +134,13 @@ oc delete pod POD_NAME -n PROJECT_NAME --grace-period=0 --force
                               # if pod still stays in Terminating state, try replace deletionTimestamp: null
                               # as well as finalizers: null  (it may contain an item foregroundDeletion, remove that)
 ```
+## Managing Docker images
+```
+docker images --no-trunc --format '{{.ID}} {{.CreatedSince}}' --filter "dangling=true" --filter "before=IMAGE_ID"
+                              # list image with format and 
+                              # using multiple filters
+```
+
 ## PV & PVC - PhysicalVolume & PhysicalVolumeClaim
 ``` 
 oc get pv                     # list all pv in the cluster
